@@ -6,14 +6,21 @@ module.exports = {
   theme: {
     screens: {
       'mobile': '280px',
-      'tablet': '640px',
+      'tablet': '700px',
       'large-tablet': '768px',
       'laptop': '1024px',
       'desktop': '1280px',
     },
     extend: {
       fontFamily: {
-        sans: 'Arial, sans-serif'
+        first: 'Helvetica, Arial, sans-serif',
+        second: 'Spectral, Georgia'
+      },
+      colors: {
+        primary: "#fb1"
+      },
+      backgroundImage: {
+        LoginDog: 'url(/src/assets/login.jpg)'
       }
     },
   },
