@@ -4,7 +4,7 @@ import { UserContext } from "../../contexts/UserContext";
 import useForm from "../../hooks/useForm";
 import Head from "../Head";
 import Input from "../Input";
-import { LoadingSpinner } from "../Loading/LoadingSpinner";
+import { LoadingSpinner } from "../loading/loadingspinner";
 
 export default function SingingForm() {
   const username = useForm("username");

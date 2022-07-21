@@ -1,4 +1,4 @@
-import { LoadingSpinner } from "./LoadingSpinner";
+import { LoadingSpinner } from "./loadingspinner";
 import "./styles.css";
 
 export default function LoadingOverlay() {

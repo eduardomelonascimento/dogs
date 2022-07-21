@@ -6,7 +6,7 @@ import useForm from "../../hooks/useForm";
 import { PostPhoto } from "../../services/api";
 import Head from "../Head";
 import Input from "../Input";
-import { LoadingSpinner } from "../Loading/LoadingSpinner";
+import { LoadingSpinner } from "../loading/loadingspinner";
 import "./styles.css";
 
 export default function PhotoPostForm() {

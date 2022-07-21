@@ -2,8 +2,8 @@ import { lazy, Suspense, useEffect } from "react";
 import useFetch from "../../../hooks/useFetch";
 import { GetStats } from "../../../services/api";
 import Head from "../../Head";
-import LoadingBone from "../../Loading/LoadingBone";
-import { LoadingSpinner } from "../../Loading/LoadingSpinner";
+import LoadingBone from "../../loading/LoadingBone";
+import { LoadingSpinner } from "../../loading/loadingspinner";
 const StatisticsGraphs = lazy(() => import("./StatisticsGraphs"));
 
 export default function Statistics() {
