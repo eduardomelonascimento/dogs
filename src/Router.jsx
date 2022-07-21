@@ -15,7 +15,7 @@ import UserProfile from "./Components/User/UserProfile";
 import { UserStorage } from "./contexts/UserContext";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
-import User from "./pages/user";
+import User from "./pages/User";
 
 export default function Router() {
   return (
