@@ -1,15 +1,15 @@
 #loading {
   border: 5px solid transparent;
   border-right: 5px solid var(--primary-color);
-  animation: loading 0.5s infinite linear;
-  -webkit-animation: loading 0.5s infinite linear;
+  animation: anime-loading 0.5s infinite linear;
+  -webkit-animation: anime-loading 0.5s infinite linear;
 }
 
 .overlay {
   @apply fixed top-0 left-0 h-screen w-screen bg-opacity-50 bg-black z-50 flex items-center justify-center;
 }
 
-@keyframes loading {
+@keyframes anime-loading {
   from {
     transform: translate(0deg);
     -webkit-transform: translate(0deg);
