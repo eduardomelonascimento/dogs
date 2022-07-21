@@ -1,12 +1,12 @@
 import classNames from "classnames";
-import React, { useContext, useState } from "react";
+import { useContext } from "react";
 import { UserContext } from "../../contexts/UserContext";
 import useForm from "../../hooks/useForm";
+import Head from "../Head";
 import Input from "../Input";
-import Loading from "../loading/Loading";
+import Loading from "../Loading/Loading";
 
 export default function SingingForm() {
-
   const username = useForm("username");
   const email = useForm("email");
   const password = useForm();
@@ -20,13 +20,14 @@ export default function SingingForm() {
   async function handleSubmit(event) {
     event.preventDefault();
     if (validateForm()) {
-      userContext.singin(username.value, password.value, email.value)
+      userContext.singin(username.value, password.value, email.value);
     }
   }
 
   return (
     <div className="anime-fade-left m-4 flex flex-col mt-20 max-w-lg tablet:mt-4 tablet:justify-center flex-1">
-      <h1 className="font-serif mobile:text-[2.5rem] tablet:text-5xl font-bold login relative">
+      <Head title={"Singin"} description="Crie a sua conta no Dogs." />
+      <h1 className="mobile:text-[2.5rem] tablet:text-5xl title">
         Cadastre-se
       </h1>
       <form onSubmit={handleSubmit} className="large-tablet:max-w-sm mt-4">
@@ -59,7 +60,9 @@ export default function SingingForm() {
           onBlur={password.onBlur}
           error={password.error}
         />
-        {userContext.error && <p className="text-red-600">{userContext.error}.</p>}
+        {userContext.error && (
+          <p className="text-red-600">{userContext.error}.</p>
+        )}
         <div className="w-32 h-10 mt-2 flex justify-center items-center">
           {userContext.loading ? (
             <Loading height={20} width={20} />

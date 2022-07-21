@@ -1,8 +1,17 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import LoginForm from "./Components/Auth/LoginForm";
+import PasswordLostForm from "./Components/Auth/PasswordLostForm";
+import PasswordResetForm from "./Components/Auth/PasswordResetForm";
+import SinginForm from "./Components/Auth/SinginForm";
+import Feed from "./Components/Feed/Feed";
+import Photo from "./Components/Feed/Photo/Photo";
 import Footer from "./Components/Footer";
 import Header from "./Components/Header";
-import LoginForm from "./Components/login/LoginForm";
-import SinginForm from "./Components/login/SinginForm";
+import NotFound from "./Components/NotFound";
+import ProtectedRoute from "./Components/ProtectedRoute";
+import PhotoPostForm from "./Components/User/PhotoPostForm";
+import Statistics from "./Components/User/Statistics/Statistics";
+import UserProfile from "./Components/User/UserProfile";
 import { UserStorage } from "./contexts/UserContext";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
@@ -13,22 +22,23 @@ export default function Router() {
     <BrowserRouter>
       <UserStorage>
         <Header />
-        <section className="content">
+        <section className="content flex justify-center">
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="conta" element={<User />}>
-              
-            </Route>
             <Route path="login" element={<Login />}>
               <Route path="" element={<LoginForm />} />
-              <Route path="criar" element={<SinginForm />} />
+              <Route path="singin" element={<SinginForm />} />
+              <Route path="lost" element={<PasswordLostForm />}/>
+              <Route path="reset" element={<PasswordResetForm />}/>
             </Route>
-            <Route
-              path="*"
-              element={
-                <h1 className="mt-16 text-4xl">Página não encontrada</h1>
-              }
-            />
+            <Route path="account" element={<ProtectedRoute element={<User />} />}>
+              <Route path="" element={<Feed />} />
+              <Route path="post" element={<PhotoPostForm />} />
+              <Route path="analytics" element={<Statistics />} />
+            </Route>
+            <Route path="/photo/:id" element={<Photo />} />
+            <Route path="/profile/:user" element={<UserProfile />} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </section>
         <Footer />

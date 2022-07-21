@@ -23,8 +23,21 @@ body,
   @apply pt-14;
 }
 
+.supress-scroll {
+  height: 101vh;
+  overflow-y: hidden;
+}
+
+label {
+  display: inline-block;
+}
+
 input {
   @apply block rounded placeholder:text-gray-500 text-base py-3 px-4 w-full outline-none bg-gray-200 border hover:border-primary focus:border-primary transition-all;
+}
+
+input[type="file"] {
+  cursor: pointer;
 }
 
 input:focus,
@@ -49,12 +62,17 @@ button:focus,
   box-shadow: 0 0 0 3px #fea, 0 0 0 4px #fb1;
 }
 
-div.login, .content {
+div.login,
+.content {
   min-height: calc(100vh - 56px);
   width: 100%;
 }
 
-h1.login::before {
+.title {
+  @apply font-serif relative font-bold z-10;
+}
+
+.title::before {
   content: "";
   display: block;
   height: 1.5rem;
@@ -84,48 +102,20 @@ h2.cadastre::after {
   -o-border-radius: 3px;
 }
 
-#loading {
-  border: 5px solid transparent;
-  border-right: 5px solid var(--primary-color);
-  animation: loading 0.5s infinite linear;
-  -webkit-animation: loading 0.5s infinite linear;
-}
-
-@keyframes loading {
-  from {
-    transform: translate(0deg);
-    -webkit-transform: translate(0deg);
-    -moz-transform: translate(0deg);
-    -ms-transform: translate(0deg);
-    -o-transform: translate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-    -webkit-transform: rotate(360deg);
-    -moz-transform: rotate(360deg);
-    -ms-transform: rotate(360deg);
-    -o-transform: rotate(360deg);
-  }
-}
-
 .anime-fade-left {
   transform: translateX(-50px);
   opacity: 0;
   animation: anime-fade-left 0.5s forwards;
-  -webkit-animation: anime-fade-left 0.5s forwards;
-  -webkit-transform: translateX(-50px);
-  -moz-transform: translateX(-50px);
-  -ms-transform: translateX(-50px);
-  -o-transform: translateX(-50px);
+  z-index: 1;
 }
 
 @keyframes anime-fade-left {
   to {
-    opacity: initial;
-    transform: initial;
-    -webkit-transform: initial;
-    -moz-transform: initial;
-    -ms-transform: initial;
-    -o-transform: initial;
-  }
+    opacity: 1;
+    transform: translateX(0);
+    -webkit-transform: translateX(0);
+    -moz-transform: translateX(0);
+    -ms-transform: translateX(0);
+    -o-transform: translateX(0);
+}
 }

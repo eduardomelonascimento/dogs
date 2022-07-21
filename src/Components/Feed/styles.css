@@ -1,0 +1,75 @@
+.skeleton-container {
+  display: grid;
+  grid-area: 1/1;
+}
+
+.skeleton {
+  grid-area: 1/1;
+  background-image: linear-gradient(90deg, #eee 0px, #fff 50%, #eee 100%);
+  background-color: #eee;
+  background-size: 200%;
+  animation: skeleton 1.5s infinite linear;
+  -webkit-animation: skeleton 1.5s infinite linear;
+}
+
+.skeleton-container img {
+  transition: 0.1s;
+  opacity: 0;
+  grid-area: 1/1;
+  -webkit-transition: 0.1s;
+  -moz-transition: 0.1s;
+  -ms-transition: 0.1s;
+  -o-transition: 0.1s;
+}
+
+@keyframes skeleton {
+  from {
+    background-position: 0px;
+  }
+  to {
+    background-position: -200%;
+  }
+}
+
+@media (min-width: 700px) {
+  .photo:nth-child(2) {
+    grid-column: 2/4;
+    grid-row: span 2;
+  }
+}
+
+.photo span {
+  grid-area: 1/1;
+  font-size: 1rem;
+  background-color: rgba(0, 0, 0, 0.2);
+  color: #fff;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: 0.2s;
+  cursor: pointer;
+  -webkit-transition: 0.2s;
+  -moz-transition: 0.2s;
+  -ms-transition: 0.2s;
+  -o-transition: 0.2s;
+}
+
+.photo:hover span {
+  display: flex;
+}
+
+.photo span:hover {
+  opacity: initial;
+}
+
+.photo span::before {
+  content: "";
+  width: 1rem;
+  height: 1rem;
+  display: inline-block;
+  margin-right: 0.4rem;
+  background-image: url("../../assets/visualizacao.svg");
+  background-repeat: no-repeat;
+  background-position: center center;
+}

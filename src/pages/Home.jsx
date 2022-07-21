@@ -1,14 +1,19 @@
-import React, { useContext } from 'react'
-import LoadingOverlay from '../Components/loading/LoadingOverlay';
-import { UserContext } from '../contexts/UserContext'
+import { useContext } from "react";
+import Feed from "../Components/Feed/Feed";
+import Head from "../Components/Head";
+import LoadingBone from "../Components/Loading/LoadingBone";
+import { UserContext } from "../contexts/UserContext";
 
 function Home() {
-  const userContext = useContext(UserContext);
-  
-  if (userContext.loading) return <LoadingOverlay/>
+  const { loading } = useContext(UserContext);
+
+  if (loading) return <LoadingBone />;
   return (
-    <div>Home</div>
-  )
+    <section className="mt-4">
+      <Head title={"Fotos"} description="Página inicial do Dogs."/>
+      <Feed user={0}/>
+    </section>
+  );
 }
 
-export default Home
+export default Home;

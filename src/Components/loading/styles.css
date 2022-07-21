@@ -1,0 +1,27 @@
+#loading {
+  border: 5px solid transparent;
+  border-right: 5px solid var(--primary-color);
+  animation: loading 0.5s infinite linear;
+  -webkit-animation: loading 0.5s infinite linear;
+}
+
+.overlay {
+  @apply fixed top-0 left-0 h-screen w-screen bg-opacity-50 bg-black z-50 flex items-center justify-center;
+}
+
+@keyframes loading {
+  from {
+    transform: translate(0deg);
+    -webkit-transform: translate(0deg);
+    -moz-transform: translate(0deg);
+    -ms-transform: translate(0deg);
+    -o-transform: translate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+  }
+}

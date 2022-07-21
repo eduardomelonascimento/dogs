@@ -3,8 +3,9 @@ import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { UserContext } from "../../contexts/UserContext";
 import useForm from "../../hooks/useForm";
+import Head from "../Head";
 import Input from "../Input";
-import Loading from "../loading/Loading";
+import Loading from "../Loading/Loading";
 
 export default function LoginForm() {
   const username = useForm();
@@ -25,56 +26,27 @@ export default function LoginForm() {
 
   return (
     <div className="anime-fade-left m-4 flex flex-col justify-center max-w-lg flex-1">
-      <h1 className="font-serif text-5xl font-bold login relative">Login</h1>
+      <Head title={"Login"} description="Faça login no Dogs."/>
+      <h1 className="text-5xl title">Login</h1>
       <form onSubmit={handleSubmit} className="large-tablet:max-w-sm mt-4">
-        <Input
-          type={"text"}
-          id="username"
-          label={"Usuário"}
-          value={username.value}
-          onChange={username.onChange}
-          error={username.error}
-          placeholder="Nome de usuário ou email"
-          onBlur={username.onBlur}
-        />
-        <Input
-          type={"password"}
-          id="password"
-          label={"Senha"}
-          value={password.value}
-          onChange={password.onChange}
-          error={password.error}
-          placeholder="Senha"
-          onBlur={password.onBlur}
-        />
+        <Input type={"text"} id="username" label={"Usuário"} value={username.value} onChange={username.onChange} error={username.error} placeholder="Nome de usuário ou email" onBlur={username.onBlur} />
+        <Input type={"password"} id="password" label={"Senha"} value={password.value} onChange={password.onChange} error={password.error} placeholder="Senha" onBlur={password.onBlur} />
         <div className="w-32 h-10 flex justify-center items-center">
-          <button
-            className={classNames("w-full", {
-              hidden: userContext.loading,
-            })}
-          >
+          <button className={classNames("w-full", { hidden: userContext.loading, })}>
             Entrar
           </button>
           {userContext.loading && <Loading height={20} width={20} />}
         </div>
-        {userContext.error && (
-          <div
-            className="mt-3"
-            dangerouslySetInnerHTML={{ __html: userContext.error }}
-          ></div>
-        )}
+        {userContext.error && (<div className="mt-3 text-red-600" dangerouslySetInnerHTML={{ __html: userContext.error }}></div>)}
       </form>
-      <Link
-        to="perdeu"
-        className="text-gray-600 w-fit border-b-2 border-gray-500 my-8 leading-4"
-      >
+      <Link to="lost" className="text-gray-600 w-fit border-b-2 border-gray-500 my-8 leading-4" >
         Perdeu a senha?
       </Link>
       <h2 className="font-serif text-3xl font-bold my-6 cadastre">
         Cadastre-se
       </h2>
       <p className="mb-4">Ainda não possui conta? Cadastre-se no site.</p>
-      <Link to="criar" className="button">
+      <Link to="singin" className="button">
         Cadastro
       </Link>
     </div>

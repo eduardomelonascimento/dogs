@@ -39,14 +39,12 @@ export function UserStorage({ children }) {
     const { url, options } = GetUser(token);
     const response = await req.request(url, options);
     setData(response.json);
-    navigate("/conta");
+    setLogged(true);
   }
 
   async function login(username, password) {
     if (await getToken(username, password)) {
-      const token = localStorage.getItem("token");
-      getUser(token);
-      setLogged(true);
+      getUser(localStorage.getItem("token"));
     }
   }
 
@@ -56,7 +54,12 @@ export function UserStorage({ children }) {
       const { response } = await req.request(url, options);
       if (response.ok) {
         getUser(localStorage.getItem("token"));
+      } else {
+        setLogged(false);
+        navigate("/login");
       }
+    } else {
+      setLogged(false);
     }
   }
 

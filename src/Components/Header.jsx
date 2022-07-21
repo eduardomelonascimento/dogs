@@ -1,8 +1,8 @@
-import React, { useContext } from "react";
+import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { UserContext } from "../contexts/UserContext";
-import DogsLogo from "./svgs/DogsLogo";
-import UserIcon from "./svgs/UserIcon";
+import DogsLogo from "./Svgs/DogsLogo";
+import UserIcon from "./Svgs/UserIcon";
 
 export default function Header() {
   const userContext = useContext(UserContext);
@@ -16,10 +16,10 @@ export default function Header() {
           <div>
             {userContext && userContext.data ? (
               <div className="flex gap-2">
-                <Link to={"/conta"} className="flex gap-2 items-baseline p-2">
+                <Link to={"/account"} className="flex gap-2 items-baseline p-2">
                   {userContext.data.username}
+                  <UserIcon />
                 </Link>
-                <button onClick={userContext.logout}>Sair</button>
               </div>
             ) : (
               <Link to={"/login"} className="flex gap-2 items-baseline p-2">
