@@ -11,17 +11,9 @@
 
 @keyframes anime-loading {
   from {
-    transform: translate(0deg);
-    -webkit-transform: translate(0deg);
-    -moz-transform: translate(0deg);
-    -ms-transform: translate(0deg);
-    -o-transform: translate(0deg);
-  }
+    transform: initial;
+}
   to {
     transform: rotate(360deg);
-    -webkit-transform: rotate(360deg);
-    -moz-transform: rotate(360deg);
-    -ms-transform: rotate(360deg);
-    -o-transform: rotate(360deg);
   }
 }
