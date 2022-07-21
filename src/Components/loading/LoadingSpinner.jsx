@@ -2,7 +2,8 @@ import './styles.css'
 
 export default function LoadingSpinner({width, height}) {
   return (
-    <div id="loading" className={`w-[${width}] h-[${height}]`} ></div>
+    // <div id="loading" style={{width: width, height: height, borderRadius: "50%"}}></div>
+    null
   )
 }
 
