@@ -4,7 +4,7 @@ import { UserContext } from "../../contexts/UserContext";
 import useForm from "../../hooks/useForm";
 import Head from "../Head";
 import Input from "../Input";
-import Loading from "../Loading/Loading";
+import LoadingSpinner from "../Loading/LoadingSpinner";
 
 export default function SingingForm() {
   const username = useForm("username");
@@ -65,7 +65,7 @@ export default function SingingForm() {
         )}
         <div className="w-32 h-10 mt-2 flex justify-center items-center">
           {userContext.loading ? (
-            <Loading height={20} width={20} />
+            <LoadingSpinner height={20} width={20} />
           ) : (
             <button className={classNames("w-full", {})}>Cadastrar</button>
           )}

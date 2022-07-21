@@ -3,7 +3,7 @@ import useForm from "../../hooks/useForm";
 import { PasswordLost } from "../../services/api";
 import Head from "../Head";
 import Input from "../Input";
-import Loading from "../Loading/Loading";
+import LoadingSpinner from "../Loading/LoadingSpinner";
 
 export default function PasswordLostForm() {
   const login = useForm();
@@ -43,7 +43,7 @@ export default function PasswordLostForm() {
             />
             <div className="w-[77px] flex items-center justify-center">
               {req.loading ? (
-                <Loading height={20} width={20} />
+                <LoadingSpinner height={20} width={20} />
               ) : (
                 <button>Enviar</button>
               )}

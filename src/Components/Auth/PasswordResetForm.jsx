@@ -7,7 +7,7 @@ import useForm from "../../hooks/useForm";
 import { PasswordReset } from "../../services/api";
 import Head from "../Head";
 import Input from "../Input";
-import Loading from "../Loading/Loading";
+import LoadingSpinner from "../Loading/LoadingSpinner";
 
 export default function PasswordResetForm() {
   const [login, setLogin] = useState("");
@@ -59,7 +59,7 @@ export default function PasswordResetForm() {
           })}
         >
           {req.loading ? (
-            <Loading height={20} width={20} />
+            <LoadingSpinner height={20} width={20} />
           ) : (
             <button>Redefinir</button>
           )}

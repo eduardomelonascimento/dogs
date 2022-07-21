@@ -1,9 +1,9 @@
-import Head from "../../Head";
-import useFetch from "../../../hooks/useFetch";
 import { lazy, Suspense, useEffect } from "react";
+import useFetch from "../../../hooks/useFetch";
 import { GetStats } from "../../../services/api";
+import Head from "../../Head";
 import LoadingBone from "../../Loading/LoadingBone";
-import Loading from "../../Loading/Loading";
+import LoadingSpinner from "../../Loading/LoadingSpinner";
 const StatisticsGraphs = lazy(() => import("./StatisticsGraphs"));
 
 export default function Statistics() {
@@ -26,7 +26,7 @@ export default function Statistics() {
       <>
         <div className="anime-fade-left">
           <Head title={"Estatísticas"} description="Vejas suas estatísticas e a atividade das suas publicações no Dogs." />
-          <Suspense fallback={<div className="w-full h-full flex items-center justify-center"><Loading height={50} width={50}/></div>}>
+          <Suspense fallback={<div className="w-full h-full flex items-center justify-center"><LoadingSpinner height={50} width={50}/></div>}>
             <StatisticsGraphs data={req.data} />
           </Suspense>
         </div>

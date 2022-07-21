@@ -5,7 +5,7 @@ import { UserContext } from "../../contexts/UserContext";
 import useForm from "../../hooks/useForm";
 import Head from "../Head";
 import Input from "../Input";
-import Loading from "../Loading/Loading";
+import LoadingSpinner from "../Loading/LoadingSpinner";
 
 export default function LoginForm() {
   const username = useForm();
@@ -35,7 +35,7 @@ export default function LoginForm() {
           <button className={classNames("w-full", { hidden: userContext.loading, })}>
             Entrar
           </button>
-          {userContext.loading && <Loading height={20} width={20} />}
+          {userContext.loading && <LoadingSpinner height={20} width={20} />}
         </div>
         {userContext.error && (<div className="mt-3 text-red-600" dangerouslySetInnerHTML={{ __html: userContext.error }}></div>)}
       </form>

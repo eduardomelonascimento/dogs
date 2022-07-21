@@ -6,7 +6,7 @@ import useForm from "../../hooks/useForm";
 import { PostPhoto } from "../../services/api";
 import Head from "../Head";
 import Input from "../Input";
-import Loading from "../Loading/Loading";
+import LoadingSpinner from "../Loading/LoadingSpinner";
 import "./styles.css";
 
 export default function PhotoPostForm() {
@@ -68,7 +68,7 @@ export default function PhotoPostForm() {
             {response && <p className="mt-6">{response}</p>}
               {req.loading ? (
                 <div className="w-24 mx-0 my-6">
-                  <Loading height={20} width={20} />
+                  <LoadingSpinner height={20} width={20} />
                 </div>
               ) : (<button className='my-4'>Publicar</button>)}
           </div>
