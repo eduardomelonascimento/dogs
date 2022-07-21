@@ -5,7 +5,7 @@ import { UserContext } from "../../contexts/UserContext";
 import useForm from "../../hooks/useForm";
 import Head from "../Head";
 import Input from "../Input";
-import { LoadingSpinner } from "../loading/loadingspinner";
+import { LoadingSpinner } from "../Loading/LoadingSpinner";
 
 export default function LoginForm() {
   const username = useForm();

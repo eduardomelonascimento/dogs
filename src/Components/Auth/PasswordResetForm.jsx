@@ -7,7 +7,7 @@ import useForm from "../../hooks/useForm";
 import { PasswordReset } from "../../services/api";
 import Head from "../Head";
 import Input from "../Input";
-import { LoadingSpinner } from "../loading/loadingspinner";
+import { LoadingSpinner } from "../Loading/LoadingSpinner";
 
 export default function PasswordResetForm() {
   const [login, setLogin] = useState("");
