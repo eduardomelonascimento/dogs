@@ -3,7 +3,7 @@ import useFetch from "../../../hooks/useFetch";
 import { GetStats } from "../../../services/api";
 import Head from "../../Head";
 import LoadingBone from "../../Loading/LoadingBone";
-import LoadingSpinner from "../../Loading/LoadingSpinner";
+import { LoadingSpinner } from "../../Loading/LoadingSpinner";
 const StatisticsGraphs = lazy(() => import("./StatisticsGraphs"));
 
 export default function Statistics() {

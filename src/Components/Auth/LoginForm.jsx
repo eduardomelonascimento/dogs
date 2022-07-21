@@ -2,10 +2,10 @@ import classNames from "classnames";
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { UserContext } from "../../contexts/UserContext";
-import LoadingSpinner from "../Loading/LoadingSpinner";
 import useForm from "../../hooks/useForm";
 import Head from "../Head";
 import Input from "../Input";
+import { LoadingSpinner } from "../Loading/LoadingSpinner";
 
 export default function LoginForm() {
   const username = useForm();

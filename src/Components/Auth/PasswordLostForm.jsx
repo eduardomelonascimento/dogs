@@ -3,7 +3,7 @@ import useForm from "../../hooks/useForm";
 import { PasswordLost } from "../../services/api";
 import Head from "../Head";
 import Input from "../Input";
-import LoadingSpinner from "../Loading/LoadingSpinner";
+import { LoadingSpinner } from "../Loading/LoadingSpinner";
 
 export default function PasswordLostForm() {
   const login = useForm();
