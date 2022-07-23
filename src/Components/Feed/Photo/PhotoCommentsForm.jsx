@@ -38,7 +38,7 @@ export default function PhotoCommentsForm({ id, setCommentList, single }) {
         onChange={handleChange}
         className={"bg-gray-200 p-3 max-h-14 rounded-md resize-none border w-full"}
       ></textarea>
-      <button className="bg-transparent hover:border-none hover:cursor-pointer hover:shadow-none">
+      <button className="bg-transparent hover:border-none hover:cursor-pointer hover:shadow-none transition-none">
         <SendIcon />
       </button>
       {error && error.message}
