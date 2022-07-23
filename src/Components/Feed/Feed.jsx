@@ -13,7 +13,7 @@ export default function Feed({ user }) {
     let wait = false;
     function infiniteScroll() {
       const height = document.body.offsetHeight - window.innerHeight;
-      if (scrollY > height * 0.9 && !wait && infinite) {
+      if (scrollY > height * 0.75 && !wait && infinite) {
         setpages((pages) => [...pages, pages.length + 1]);
         wait = true;
         setTimeout(() => {
