@@ -8,26 +8,32 @@ export default function Feed({ user }) {
   const [pages, setpages] = useState([1]);
   const [infinite, setInfinite] = useState(true);
   const { data } = useContext(UserContext);
+  let wait = false;
+
+  function infiniteScroll() {
+    const height = document.body.offsetHeight - window.innerHeight;
+    if (scrollY > height * 0.6 && !wait && infinite) {
+      setpages((pages) => [...pages, pages.length + 1]);
+      wait = true;
+      setTimeout(() => {
+        wait = false;
+      }, 1500);
+    }
+  }
 
   useEffect(() => {
-    let wait = false;
-    function infiniteScroll() {
-      const height = document.body.offsetHeight - window.innerHeight;
-      if (scrollY > height * 0.75 && !wait && infinite) {
-        setpages((pages) => [...pages, pages.length + 1]);
-        wait = true;
-        setTimeout(() => {
-          wait = false;
-        }, 1500);
-      }
-    }
     addEventListener("wheel", infiniteScroll);
     addEventListener("scroll", infiniteScroll);
+
     return () => {
       removeEventListener("scroll", infiniteScroll);
       removeEventListener("wheel", infiniteScroll);
     };
   }, [infinite]);
+
+  useEffect(() => {
+    infiniteScroll();
+  }, []);
 
   return (
     <div>
