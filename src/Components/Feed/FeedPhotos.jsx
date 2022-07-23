@@ -23,7 +23,7 @@ export default function FeedPhotos({ setModalPhoto, page, setInfinite, total, us
   if (req.loading) return <LoadingBone />;
   return (
     <>
-      <ul className="grid grid-cols-2 tablet:grid-cols-3 gap-2 tablet:gap-3 max-w-screen-large-tablet mb-3">
+      <ul className="grid grid-cols-2 tablet:grid-cols-3 gap-2 tablet:gap-3 max-w-screen-large-tablet mb-2 tablet:mb-3">
         {req.data?.map((photo) => (
           <FeedPhotoItem
             key={photo.id}
