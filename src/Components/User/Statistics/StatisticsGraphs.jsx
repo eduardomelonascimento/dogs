@@ -20,17 +20,22 @@ export default function StatisticsGraphs({ data }) {
     }
   }, [data]);
 
-  console.log(data);
   return (
     <>
       <section className="anime-fade-left">
         <div>
           <p>Acessos: {total}</p>
         </div>
-        <div className="tablet:grid tablet:grid-cols-2 gap-3">
-          <div className=" flex justify-center items-center w-full mx-auto">
-            <VictoryPie data={graph} innerRadius={65} />
-          </div>
+        <div
+          className={
+            graph.length ? `tablet:grid tablet:grid-cols-2 gap-3` : null
+          }
+        >
+          {graph.length ? (
+            <div className=" flex justify-center items-center w-full mx-auto">
+              <VictoryPie data={graph} innerRadius={65} />
+            </div>
+          ) : null}
           <div>
             <VictoryChart>
               <VictoryBar alignment="start" data={graph}></VictoryBar>
